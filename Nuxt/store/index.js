@@ -16,6 +16,12 @@ const createStore = () => {
         konser_saya: ''
     },
     mutations: {
+        like(state,data){
+            this.$axios.$get(state.api+'like/'+data)
+                .then(res => {
+                    console.log(res)
+                })
+        },
         setKonserSaya(state,data){
             state.konser_saya = data
         },

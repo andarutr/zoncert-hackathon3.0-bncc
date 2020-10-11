@@ -39,7 +39,7 @@ export default {
   },
   methods:{
     getData(){
-      this.$axios.get(this.$store.state.api+"concert/pupuler")
+      this.$axios.get(this.$store.state.api+"concert/populer")
         .then(res => {
           this.konserPopuler = res.data.data.data
         })

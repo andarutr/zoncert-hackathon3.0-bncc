@@ -15,7 +15,7 @@
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-heart-fill " fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
-                    <span class="px-2">30K</span>
+                    <span class="px-2">{{ data.like }}</span>
             </button>
         </div>
        </nuxt-link>
@@ -23,16 +23,11 @@
 </template>
 <script>
 export default {
-    props:['data'],
+     props:['data'],
      methods:{
         tgl(req){
             let arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
             let date = new Date(req);
-            // millisecond = date.getMilliseconds();
-            // detik = date.getSeconds();
-            // menit = date.getMinutes();
-            // jam = date.getHours();
-            // hari = date.getDay();
             let tanggal = date.getDate();
             let bulan = date.getMonth();
             let tahun = date.getFullYear();

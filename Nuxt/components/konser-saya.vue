@@ -1,6 +1,6 @@
 <template>
     <div >
-       <nuxt-link class="flex bg-theme_primary_light hover:bg-theme_primary_dark p-3 rounded-xl mb-2" :to="'/diskusi-konser/'+data.id">
+       <nuxt-link class="flex bg-theme_primary_light hover:bg-theme_primary_dark p-3 rounded-xl mb-2" :to="'/masuk-konser/'+data.id">
        <div class="w-1/3">
             <img width="150px" height="150px" class="rounded-xl" :src="data.thumbnail" :alt="data.thumbnail">
        </div>

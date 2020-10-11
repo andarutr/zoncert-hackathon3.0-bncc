@@ -10,7 +10,11 @@
           <input @keyup.enter="getData" type="text" class="bg-theme_primary_light w-full p-3 rounded-xl px-5" placeholder="Cari Nama Konser" v-model="keyword">
       </div>
 
-      <div v-if="!cariKonser" class="w-full content-center justify-center flex flex-wrap my-3">
+    
+      
+      <div v-if="keyword" class="w-full">
+        
+          <div v-if="!cariKonser" class="w-full content-center justify-center flex flex-wrap my-3">
             <img class="w-1/2" src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
             
             <span class="p-2 w-full text-center">Konsernya Tidak Ada</span>
@@ -20,7 +24,6 @@
             </nuxt-link>
       </div>
       
-      <div v-if="keyword" class="w-full">
         <konser class="w-full" v-for="konser in cariKonser" :key="konser.id" :data="konser" />
          
       </div>
@@ -31,6 +34,8 @@
                 <span class="p-1">{{ kat.category }}</span>
             </nuxt-link>
       </div>
+
+      
       
     </div>
   </div>

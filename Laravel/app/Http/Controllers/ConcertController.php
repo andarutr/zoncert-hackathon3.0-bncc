@@ -169,8 +169,8 @@ class ConcertController extends Controller
     	}
     }
 
-    // Pupuler
-    public function Pupuler()
+    // Populer
+    public function Populer()
     {
         $concert = Concert::orderByDesc('like')->paginate(10);
 
@@ -197,5 +197,9 @@ class ConcertController extends Controller
 	// 
 	public function MyConcert(){
 		return json_encode(Concert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
+	}
+
+	public function ById($id){
+		return json_encode(Concert::with("CostConcert")->find($id));
 	}
 }

@@ -29,9 +29,11 @@ Route::get('/category','HelperController@getCategory');
 Route::get('/type','HelperController@getType');
 
 
+
 Route::get('/concert', 'ConcertController@Read'); // Terbaru
-Route::get('/concert/pupuler', 'ConcertController@Pupuler'); // Populer
+Route::get('/concert/populer', 'ConcertController@Populer'); // Populer
 Route::get('/concert/search/{keyword}', 'ConcertController@Search'); // Search
+
 
 
 
@@ -51,8 +53,15 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/my-ticket', 'ConcertController@MyTicket');
 
 
-    
+
+    Route::get('/like/{id}', 'HelperController@Like');
+
 
 
     
 });
+
+
+
+
+Route::get('/concert/{id}', 'ConcertController@ById'); // Terbaru
