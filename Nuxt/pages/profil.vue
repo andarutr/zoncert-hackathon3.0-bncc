@@ -1,6 +1,9 @@
 <template>
-  <div class="w-full  min-h-screen bg-theme_primary flex flex-wrap justify-center items-center pt-32">
-    .......... 
+  <div class="w-full pt-16 p-2">
+ 
+   <button class="bg-primary w-full lg:w-1/4 p-3 rounded-lg text-secondary ">
+     Profil Saya
+   </button>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-3 fixed lg:px-20 p-3 bg-theme_primary_light">
+    <div class="w-full px-3 fixed lg:px-10 p-3 bg-theme_primary_light z-50">
            <!-- Header -->
             <nav class="w-full flex flex-wrap" >
                 
@@ -35,33 +35,12 @@
             </nav>
 
 
-            <div class="filter-container" v-if="$route.path == '/' || $route.path == '/explore'">
-                    <div class="mobile-tab-wrap">
-                    <div class="filter-tabs justify-start lg:justify-center mt-2 font-bold text-center text-sm">
-                       <a v-for="menu in $store.state.kategori" :key="toId(menu)" href="#"
-                       
-                        :class="($store.state.menu_tab == toId(menu)) ? 'border-b-2 text-primary border-primary animate-pulse' : ''" 
-                
-                            v-scroll-to="{
-                                    el: `#${toId(menu)}`,
-                                    offset: -120,
-                                    duration: 600,
-                                }" 
-                            
-                            class="p-3 lg:px-5">{{menu}}</a>  
-                    </div>
-                    
-                    </div>
-            </div>
    </div>
 </template>
 
 <script>
 export default {
     methods:{
-        toId(string){
-            return string.replace(' ','').replace('&','').replace('-','').replace('/','').replace(' ','')
-        }
     }
 }
 </script>

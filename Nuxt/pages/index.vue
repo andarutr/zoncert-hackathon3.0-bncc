@@ -1,14 +1,18 @@
 <template>
-  <div class="w-full  min-h-screen bg-theme_primary flex flex-wrap justify-center items-center pt-32">
+  <div class="w-full flex flex-wrap  pt-16">
     
-    <div v-for="menu in $store.state.kategori" :key="toId(menu)" 
-    ref="element"  
-    :id="toId(menu)" 
-    class="h-screen w-full p-3 lg:px-20">
+    <div class=" w-full p-3 lg:px-20">
       <h1 class="font-bold text-xl uppercase">
-        {{ menu }}
+        Populer
       </h1>
     </div>
+
+     <div  class="w-full p-3 lg:px-20">
+      <h1 class="font-bold text-xl uppercase">
+        Terbaru
+      </h1>
+    </div>
+
   </div>
 </template>
 
@@ -16,26 +20,6 @@
 export default {
   scrollToTop: true,
   layout: 'app',
-  created(){
-    this.$store.commit('setMenuTab',this.toId(this.$store.state.kategori[0]))
-  },
-  mounted() {
-      var that = this;
-        window.addEventListener("scroll", function() {
-          for(let index = 0; index < that.$store.state.kategori.length;index++){
-            let top = that.$refs.element[index].getBoundingClientRect().top;
-              if(top <= 120){
-                  that.$store.commit('setMenuTab',that.toId(that.$store.state.kategori[index]))
-              }
-          }
-        
-      });
-  }
-  ,methods:{
-    toId(string){
-         return  string.replace(' ','').replace('&','').replace('-','').replace('/','').replace(' ','')
-      }
-  }
 }
 </script>
 

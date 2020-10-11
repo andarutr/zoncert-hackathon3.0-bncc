@@ -8,7 +8,7 @@
     >
       <main
         class="w-full mx-auto flex flex-wrap pt-2 content-start min-h-screen bg-theme_primary"
-        style="max-width: 800px"
+        style="max-width: 600px"
       >
         <transition name="slide-fade">
           <Nuxt />
