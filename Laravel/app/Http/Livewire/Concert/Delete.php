@@ -18,7 +18,6 @@ class Delete extends Component
     	{
     		$concert = Concert::find($id);
     		$concert->delete();
-    		// Redirect
     	}
     }
 }

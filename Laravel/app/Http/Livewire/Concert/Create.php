@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Concert;
 use App\Concert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Storage;
 
 class Create extends Component
 {
@@ -24,7 +25,7 @@ class Create extends Component
     		'thumbnail' => 'required',
     		'description' => 'required',
     		'category_id' => 'required',
-    		'type_id' =. 'required',
+    		'type_id' => 'required',
     		'start' => 'required',
     		'end' => 'required',
     		'location' => 'required',
@@ -46,14 +47,13 @@ class Create extends Component
     
             Storage::disk('public')->put($imageName, base64_decode($image));
 
-            $metda->img = env("APP_URL")."/storage/".$imageName;
+            $imgUrl = env("APP_URL")."/storage/".$imageName;
 
-            $metda->thumb = "";
         }
         
     	Concert::create([
     		'name' => $this->name,
-    		'thumbnail' => $image_64,
+    		'thumbnail' => $imgUrl,
     		'description' => $this->description,
     		'category_id' => $this->category_id,
     		'type_id' => $this->type_id,

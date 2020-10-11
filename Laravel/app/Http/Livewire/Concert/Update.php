@@ -62,14 +62,13 @@ class Update extends Component
 	    
 	            Storage::disk('public')->put($imageName, base64_decode($image));
 
-	            $metda->img = env("APP_URL")."/storage/".$imageName;
+	            $imgUrl = env("APP_URL")."/storage/".$imageName;
 
-	            $metda->thumb = "";
 	        }
 
     		$concert->update([
     			'name' => $this->name,
-	    		'thumbnail' => $image_64,
+	    		'thumbnail' => $imgUrl,
 	    		'description' => $this->description,
 	    		'category_id' => $this->category_id,
 	    		'type_id' => $this->type_id,
