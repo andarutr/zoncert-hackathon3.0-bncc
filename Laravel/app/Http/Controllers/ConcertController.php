@@ -14,7 +14,7 @@ class ConcertController extends Controller
     // Get
     public function Read()
     {
-        $concert = Concert::take(20)->orderBy("created_at","DESC");
+        $concert = Concert::paginate(10)->orderBy("created_at","DESC");
 
         return response()->json([
             "status"=>"success",

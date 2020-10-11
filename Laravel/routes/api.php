@@ -24,8 +24,24 @@ Route::post('/logout', 'api\AuthController@logout');
 
 
 Route::middleware('auth:api')->group(function(){
-    Route::get('/konser', 'ConcertController@Read');
-    Route::post('/konser/tambah','ConcertController@Create');
-    Route::post('/konser/update', 'ConcertController@Update');
-    Route::post('/konser/hapus/{id}', 'ConcertController@Delete');
+    // Get Konser Terbaru
+    Route::get('/concert', 'ConcertController@Read');
+    Route::post('/concert/create','ConcertController@Create');
+    Route::post('/concert/update', 'ConcertController@Update');
+    Route::post('/concert/delete/{id}', 'ConcertController@Delete');
+
+    // Saya Butuh APi ini respon Api Paginate
+    // Get Populer Konser (Order By Like)
+    Route::get('/concert/pupuler', 'ConcertController@Pupuler');
+    // Where Nama / Kategori / Tipe like Keyword 
+    Route::get('/concert/search/{keyword}', 'ConcertController@Search');
+    // Konser Saya
+    // Get Data Konser yang Sudah di beli By Auth::id() / Order Terbaru
+    Route::get('/my-concert', 'ConcertController@MyConcert');
+    
+    // Tiket Saya
+    // Get Data Tiket Urutkan yang Belum Dibayar di awal 
+    Route::get('/my-ticket', 'ConcertController@MyTicket');
+
+
 });
