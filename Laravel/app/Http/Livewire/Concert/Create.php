@@ -6,6 +6,7 @@ use App\Concert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Storage;
+use Auth;
 
 class Create extends Component
 {
@@ -62,8 +63,13 @@ class Create extends Component
     		'like' => NULL,
     		'discuss' => $this->discuss,
     		'location' => $this->location,
-    		'user_id' => 1,
-    	]);
+    		'user_id' => Auth::id(),
+		]);
+		
+		return response()->json([
+			"status"=>"success",
+			"info"=> ""
+		]);
 
         // Redirect
     }
