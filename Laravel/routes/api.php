@@ -42,9 +42,9 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/concert/delete/{id}', 'ConcertController@Delete');
     Route::get('/my-concert', 'ConcertController@MyConcert');
 
-    //    Cost Tiket
-     Route::post('/cost/{concert_id}', 'CostController@Create'); // Buat Cost tiket
-     Route::post('/cost/delete/{id}', 'CostController@Create'); // Haous Cost
+     // Cost Tiket
+     Route::post('/cost/{concert_id}', 'CostController@Create');// Buat Cost tiket
+     Route::post('/cost/delete/{id}', 'CostController@Delete'); // Hapus Cost
 
      Route::get('/buy-ticket/{concert_id}/{cost_id}', 'TicketController@Buy'); // Beli Tiket
     // Get Tiket Order dari Yang Belum Dibayar

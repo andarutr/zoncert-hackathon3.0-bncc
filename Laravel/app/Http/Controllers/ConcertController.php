@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Concert;
+use App\TicketConcert;
 use Auth;
 use Storage;
 
@@ -65,7 +66,6 @@ class ConcertController extends Controller
     		'start' => $req->start,
     		'end' => $req->end,
     		'like' => 0,
-    		// 'discuss' => $req->discuss,
     		'location' => $req->location,
     		'user_id' => Auth::id(),
 		]);
@@ -125,7 +125,6 @@ class ConcertController extends Controller
 					'start' => $req->start,
 					'end' => $req->end,
 					'like' => NULL,
-					// 'discuss' => $req->discuss,
 					'location' => $req->location
 				]);
 
@@ -198,4 +197,8 @@ class ConcertController extends Controller
 	public function MyConcert(){
 		return json_encode(Concert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
 	}
+
+    public function MyTicket(){
+        return json_encode(TicketConcert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
+    }
 }
