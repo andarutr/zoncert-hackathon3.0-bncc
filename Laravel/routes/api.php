@@ -23,3 +23,9 @@ Route::post('/register', 'api\AuthController@register');
 Route::post('/logout', 'api\AuthController@logout');
 
 
+Route::middleware('auth:api')->group(function(){
+    Route::get('/konser', 'ConcertController@Read');
+    Route::post('/konser/tambah','ConcertController@Create');
+    Route::post('/konser/update', 'ConcertController@Update');
+    Route::post('/konser/hapus/{id}', 'ConcertController@Delete');
+});

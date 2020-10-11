@@ -17,11 +17,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function(){
-	Route::group(['prefix' => '/admin'], function(){
-		Route::get('/konser', 'ConcertController@Read');
-		Route::post('/konser/tambah','ConcertController@Create');
-		Route::post('/konser/update', 'ConcertController@Update');
-		Route::post('/konser/hapus/{id}', 'ConcertController@Delete');
-	});
-});
