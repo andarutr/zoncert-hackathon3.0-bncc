@@ -47,7 +47,7 @@ Route::middleware('auth:api')->group(function(){
     
 
     // Konser Saya
-    // 4. Get Data Konser yang Sudah di beli By Auth::id() / Order Terbaru
+    // 4. Get Data Konser yang Sudah di beli By Auth::id() / Order Terbaru + Konser yang dibuat sendiri 
     Route::get('/my-concert', 'ConcertController@MyConcert');
     
     // Tiket Saya

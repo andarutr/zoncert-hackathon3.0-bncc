@@ -1,17 +1,22 @@
 <template>
-  <div class="w-full pt-16 p-2 flex flex-wrap">
+  <div class="w-full pt-16 p-2 flex flex-wrap mb-20">
  
 
    
-     <div v-if="!konserSaya" class="w-full content-center justify-center flex my-3">
+     <div v-if="!$store.state.konser_saya" class="w-full content-center justify-center flex my-3">
             <img src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
       </div>
+
+        <konser-saya class="w-full" v-for="konser in $store.state.konser_saya" :key="konser.id" :data="konser" />
+
+        
+
       
-  <nuxt-link to="/buat/konser" class=" text-lg bg-primary border-primary border-4 w-full text-center lg:w-1/2 p-2 rounded-full text-secondary mb-2 font-bold">
-     Buat Konser Baru
+  <nuxt-link to="/" class=" text-lg bg-primary border-primary border-4 w-full text-center lg:w-1/2 p-2 rounded-full text-secondary mb-2 font-bold">
+    Cari Konser
    </nuxt-link>
-    <nuxt-link to="/" class=" text-lg  text-center  border-primary border-4 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold">
-     Cari Konser
+    <nuxt-link to="/buat/konser" class=" text-lg  text-center  border-primary border-4 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold">
+     Buat Konser Saya
    </nuxt-link>
  
   </div>
@@ -19,13 +24,19 @@
 
 <script>
 export default {
-  scrollToTop: true,
+  scrollToTop: true, 
   layout: 'app',
   middleware: "auth",
-   data(){
-        return{
-            konserSaya: ''
-        }
+  created(){
+    this.getData();
+  },
+  methods:{
+    getData(){
+      this.$axios.get(this.$store.state.api+"my-concert")
+        .then(res => {
+           this.$store.commit("setKonserSaya",res.data.data)
+        })
+    }
   }
 }
 </script>

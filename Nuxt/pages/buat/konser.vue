@@ -6,77 +6,59 @@
      Buat Konser Baru
    </h2>
 
-
-
-
    <!-- Form -->
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Kategori</label>
-        <v-select class="w-full bg-theme_primary" :options="$store.state.kategori" v-model="d.kategori" multiple />
+        <v-select class="w-full bg-theme_primary"  :options="$store.state.kategori" label="category" v-model="d.category_id" multiple :reduce="dx => dx.id" />
     </div>
        <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Jenis Konser</label>
-        <v-select class="w-full bg-theme_primary" :options="$store.state.jenis_konser" v-model="d.jenis_konser" />
+        <v-select class="w-full bg-theme_primary"  :options="$store.state.jenis_konser" label="type" v-model="d.type_id" :reduce="dx => dx.id" />
     </div>
        <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Nama</label>
-        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.nama">
+        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.name">
     </div>
     
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Tanggal Mulai</label>
-        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.tgl_mulai">
+        <input type="date" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.start">
     </div>
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Tanggal Selesai</label>
-        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.tgl_selesai">
+        <input type="date" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.end">
     </div>
-       <div class="flex p-3 w-full flex-wrap">
-        <label class="w-full font-bold py-2">Jam Mulai</label>
-        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.jam_mulai">
-    </div>
-
-    <div class="flex p-3 w-full flex-wrap">
-        <label class="w-full font-bold py-2">Jam Selesai</label>
-        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Nama Konser" v-model="d.jam_selesai">
-    </div>
-
+  
 
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Tempat</label>
-        <textarea placeholder="Tempat Konser" class="bg-theme_primary w-full p-3 rounded-lg px-5"></textarea>
+        <textarea placeholder="Tempat Konser" v-model="d.location" class="bg-theme_primary w-full p-3 rounded-lg px-5"></textarea>
     </div>
 
 
    <div class="flex p-3 w-full flex-wrap justify-center">
         <label class="w-full font-bold py-2 text-center">Gambar Utama</label>
        
-       <croppa v-model="myCroppa"></croppa>
+       <croppa v-model="myCroppa"   
+                :width="300"
+                :height="300"
+                 :quality="2"
+                :placeholder="'Upload Foto'"
+                ></croppa>
 
     </div>
        <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Deskripsi</label>
        
-        <textarea v-model="d.deskripsi" placeholder="Detail Konser" class="bg-theme_primary w-full p-3 rounded-lg px-5" cols="30" rows="10"></textarea>
+        <textarea v-model="d.description" placeholder="Detail Konser" class="bg-theme_primary w-full p-3 rounded-lg px-5" cols="30" rows="10"></textarea>
     </div>
 
     <div class="flex p-3 w-full flex-wrap">
      
-     <button class="bg-primary text-secondary w-full p-3 rounded-lg px-5">
+     <button @click="simpan" class="bg-primary text-secondary w-full p-3 rounded-lg px-5">
          Simpan
      </button>
      </div>
-
-    
-    
-
-    <!-- <div class="flex p-3 w-full flex-wrap">
-    <label class="w-full font-bold py-2">Gambar Pendukung</label>
-    </div>
-    
-    <div class="flex p-3 w-full flex-wrap">
-    <label class="w-full font-bold py-2">Daftar Harga</label>
-    </div> -->
 
   </div>
 </template>
@@ -101,16 +83,16 @@ export default {
             d: {},
         }
   },
-  method:{
+  methods:{
       simpan(){
-        //    this.myCroppa.generateBlob(
-        //         blob => {
-        //         // write code to upload the cropped image file (a file is a blob)
-        //         },
-        //         'image/jpeg',
-        //         0.8
-        //     ); // 80% compressed jpeg file
-        //     }
+
+            this.d.thumbnail = this.myCroppa.generateDataUrl();
+            this.$axios.post(this.$store.state.api+"concert/create",this.d)
+                .then(res => {
+                    if(res.data.status == "success"){
+                        this.$router.push("/konser-saya")
+                    }
+                })
       }
   }
 }

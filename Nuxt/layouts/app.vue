@@ -305,7 +305,23 @@
 <script>
 export default {
   created(){
+
+
+    this.$axios.get(this.$store.state.api+"category")
+      .then(res =>{
+        this.$store.commit("setKategori", res.data);
+      
+      })
+      
+    this.$axios.get(this.$store.state.api+"type")
+      .then(res =>{
+        this.$store.commit("setJenisKonser", res.data);
+   
+      })
+
+
     this.$axios.setHeader('Authorization', 'Bearer '+this.$store.state.access_token)
+
 
     // Cek Token
 

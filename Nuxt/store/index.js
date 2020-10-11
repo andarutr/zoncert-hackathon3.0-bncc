@@ -11,13 +11,23 @@ const createStore = () => {
         theme: localStorage.getItem("theme") || 'theme-light',
         primaryColor: localStorage.getItem("primary-color") || 'primary-indigo',
         loading: false,
-        kategori: ['Musik','Film','Teknologi','Bisnis','K-POP','Wibu','Lainnya'],
-        jenis_konser: ['Live Konser', 'Meet&Greet', 'Seminar','Diskusi', 'Lainnya']
+        kategori: [],
+        jenis_konser: [],
+        konser_saya: ''
     },
     mutations: {
+        setKonserSaya(state,data){
+            state.konser_saya = data
+        },
+        setKategori(state,data){
+            state.kategori = data
+        },
+        setJenisKonser(state,data){
+            state.jenis_konser = data
+        },
         setUserData(state,data){
             
-            localStorage.setItem("user",JSON.stringify(res.data))
+            localStorage.setItem("user",JSON.stringify(data))
             state.user = data
             localStorage.setItem("auth",true)
             state.auth = true

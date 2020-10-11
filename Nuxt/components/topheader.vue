@@ -18,10 +18,10 @@
 
                     <div class="ml-auto flex">
 
-                         <nuxt-link v-for="kat in $store.state.kategori" :key="kat" :to="`/cari?keyword=${kat}`" class="
+                         <nuxt-link v-for="kat in $store.state.kategori" :key="kat.id" :to="`/cari?keyword=${kat.category}`" class="
                           hidden lg:flex 
                           px-5 text-primary cursor-pointer relativehover:text-primary_dark">
-                            <span class="p-1">{{ kat }}</span>
+                            <span class="p-1">{{ kat.category }}</span>
                         </nuxt-link>
                          <nuxt-link  to="/cari" class="px-3 text-primary cursor-pointer relative flex">
                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="m-1 bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

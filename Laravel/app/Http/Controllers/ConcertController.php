@@ -169,5 +169,9 @@ class ConcertController extends Controller
             }
     		
     	}
-    }
+	}
+	
+	public function MyConcert(){
+		return json_encode(Concert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
+	}
 }

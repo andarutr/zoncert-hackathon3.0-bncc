@@ -14,10 +14,10 @@
          <konser  class="w-full" v-for="i in 5" :key="i" :data="{id:1}" />
       </div>
       <div v-else class="flex w-full flex-wrap">
-           <nuxt-link v-for="kat in $store.state.kategori" :key="kat" :to="`/cari?keyword=${kat}`" class="
+           <nuxt-link v-for="kat in $store.state.kategori" :key="kat.id" :to="`/cari?keyword=${kat.category}`" class="
               flex font-bold rounded-xl mb-2 p-2 text-center text-lg w-full
               px-5 text-primary hover:bg-theme_primary_dark bg-theme_primary_light  cursor-pointer relativehover:text-primary_dark">
-                <span class="p-1">{{ kat }}</span>
+                <span class="p-1">{{ kat.category }}</span>
             </nuxt-link>
       </div>
       
