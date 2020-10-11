@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::middleware('auth')->group(function(){
-// 	Route::group(['prefix' => '/admin'], function(){
-// 		Route::get('/konser', \App\Http\Livewire\Concert\Read::class);
-// 		Route::post('/konser/tambah', \App\Http\Livewire\Concert\Create::class);
-// 		Route::post('/konser/update', \App\Http\Livewire\Concert\Update::class);
-// 		Route::post('/konser/hapus/{id}', \App\Http\Livewire\Concert\Delete::class);
-// 	});
-// });
+Route::middleware('auth')->group(function(){
+	Route::group(['prefix' => '/admin'], function(){
+		Route::get('/konser', 'ConcertController@Read');
+		Route::post('/konser/tambah','ConcertController@Create');
+		Route::post('/konser/update', 'ConcertController@Update');
+		Route::post('/konser/hapus/{id}', 'ConcertController@Delete');
+	});
+});

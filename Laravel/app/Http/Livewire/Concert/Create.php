@@ -70,7 +70,5 @@ class Create extends Component
 			"status"=>"success",
 			"info"=> ""
 		]);
-
-        // Redirect
     }
 }
