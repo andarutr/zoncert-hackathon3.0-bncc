@@ -15,10 +15,11 @@
                 30K Bergabung
             </button>
 
-             <!-- <nuxt-link :to="`/edit/konser/${data.id}`" class="bg-primary float-right rounded-full text-secondary p-1 px-4 text-xs">
-               Edit
-            </nuxt-link> -->
+
+
+            
         </div>
+
        </nuxt-link>
     </div>
 </template>

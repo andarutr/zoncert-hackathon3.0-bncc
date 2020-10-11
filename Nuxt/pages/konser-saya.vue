@@ -4,13 +4,10 @@
 
    
      <div v-if="!$store.state.konser_saya" class="w-full content-center justify-center flex my-3">
-            <img src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
+            <img  src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
       </div>
 
         <konser-saya class="w-full" v-for="konser in $store.state.konser_saya" :key="konser.id" :data="konser" />
-
-        
-
       
   <nuxt-link to="/" class=" text-lg bg-primary border-primary border-4 w-full text-center lg:w-1/2 p-2 rounded-full text-secondary mb-2 font-bold">
     Cari Konser

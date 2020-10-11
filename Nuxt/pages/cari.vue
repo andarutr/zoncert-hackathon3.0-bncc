@@ -11,11 +11,11 @@
       </div>
 
       <div v-if="!cariKonser" class="w-full content-center justify-center flex flex-wrap my-3">
-            <img src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
+            <img class="w-1/2" src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
             
-            <span class="p-2">Konsernya Tidak Ada</span>
+            <span class="p-2 w-full text-center">Konsernya Tidak Ada</span>
 
-             <nuxt-link to="/buat/konser" class=" text-lg  text-center  border-primary border-4 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold">
+             <nuxt-link to="/buat/konser" class=" text-lg  text-center  border-primary border-4 w-full p-2 rounded-full text-primary mb-2 font-bold">
               Buat Konser Saya
             </nuxt-link>
       </div>
@@ -61,6 +61,8 @@ export default {
             .then(res => {
               if(res.data.data.total > 0){
                   this.cariKonser = res.data.data.data
+              }else{
+                this.cariKonser = ''
               }
             
             })
