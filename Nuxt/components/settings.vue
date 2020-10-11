@@ -53,7 +53,7 @@
                     </div>
 
                 <button @click="$store.commit('toggleSetting')" class="px-10 py-2 text-primary font-bold border-2 border-primary neu-in hover:neu-out mt-5 rounded-full">
-                    Done
+                    Selesai
                 </button>
             </div>
         

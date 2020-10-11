@@ -17,8 +17,8 @@
                     </nuxt-link>
 
                     <div class="ml-auto flex">
-                          <nuxt-link to="/login" class="
-                          border border-primary hover:bg-primary hover:text-secondary
+                          <nuxt-link to="/login" v-if="!$store.state.auth" class="
+                          border-2 border-primary font-bold
                           rounded-xl
                           px-5 text-primary cursor-pointer  relative flex">
                        

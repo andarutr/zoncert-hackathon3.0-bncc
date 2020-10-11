@@ -21,6 +21,7 @@
 export default {
   scrollToTop: true,
   layout: 'app',
+  middleware: "auth",
    data(){
         return{
             konserSaya: ''

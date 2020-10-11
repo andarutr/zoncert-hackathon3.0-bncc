@@ -18,6 +18,7 @@
 export default {
   scrollToTop: true,
   layout: 'app',
+  middleware: "auth",
 }
 </script>
 

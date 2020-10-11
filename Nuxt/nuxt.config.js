@@ -61,6 +61,8 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-vue-select',
     'vue-scrollto/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/toast',
     [
       'nuxt-i18n',
       {

@@ -22,6 +22,7 @@
 export default {
   scrollToTop: true,
   layout: 'app',
+
 }
 </script>
 

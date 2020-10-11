@@ -15,7 +15,7 @@
         </transition>
       </main>
 
-      <nav class="fixed bottom-0 flex lg:hidden w-full bg-theme_primary">
+      <nav class="fixed bottom-0 flex lg:hidden w-full bg-theme_primary_light pt-2">
         <div class="mx-auto flex content-start text-primary font-bold">
           <nuxt-link
             to="/"
@@ -304,6 +304,20 @@
 </style>
 <script>
 export default {
+  created(){
+    this.$axios.setHeader('Authorization', 'Bearer '+this.$store.state.access_token)
+
+    // Cek Token
+
+    this.$axios.get(this.$store.state.api+"user")
+      .then(res => {
+        if(res.data){
+          // Berhasil
+           this.$store.commit("setUserData", res.data);
+        }
+      })
+
+  },
   data() {
     return {
       tactiveClass:
