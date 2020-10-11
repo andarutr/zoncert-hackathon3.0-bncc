@@ -76,14 +76,14 @@ export default {
               KonserSaya: 'Konser Saya',
               TiketSaya: 'Tiket Saya',
               Notifikasi: 'Notifikasi',
-              Profil: 'Profil',
+              Profil: 'Profil Saya',
             },
             en: {
               Beranda: 'Home',
               KonserSaya: 'My Concert',
               TiketSaya: 'My Ticket',
               Notifikasi: 'Notifikasi',
-              Profil: 'Profile',
+              Profil: 'My Profile',
             }
           }
         }

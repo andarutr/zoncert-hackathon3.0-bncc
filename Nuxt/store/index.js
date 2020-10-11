@@ -22,6 +22,19 @@ const createStore = () => {
             localStorage.setItem("auth",true)
             state.auth = true
         },
+        logout(state){
+            // this.$axios.$post(state.api+'logout')
+            // .then(res => {
+            //     console.log("Success Logout")
+            // });
+
+            localStorage.clear()
+            state.auth = false
+            state.access_token =  ""
+            this.$axios.setHeader('Authorization', '')
+            this.$router.push("/login")
+          
+        },
         login(state,data){
             state.loading = true
             //    Login
@@ -35,6 +48,7 @@ const createStore = () => {
                             this.$axios.setHeader('Authorization', 'Bearer '+res.access_token)
                             state.auth =  true
                             state.access_token =  res.access_token
+                            state.user =  res.user
                             this.$router.push("/profil")
                         }else{
                             this.$toast.error("Username / password salah ",{
@@ -62,6 +76,7 @@ const createStore = () => {
                         localStorage.setItem("access_token",res.access_token)
                         this.$axios.setHeader('Authorization', 'Bearer '+res.access_token)
                         state.auth =  true
+                        state.user =  res.user
                         state.access_token =  res.access_token
                         this.$router.push("/profil")
 
