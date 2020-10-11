@@ -11,7 +11,7 @@
             </h1>
             
           
-             <button class="font-bold  text-primary  p-1 rounded-full mt-3">
+             <button class="font-bold  text-primary lg:text-lg  p-1 rounded-full mt-2">
                 30K Bergabung
             </button>
 

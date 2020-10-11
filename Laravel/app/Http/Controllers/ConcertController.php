@@ -14,7 +14,7 @@ class ConcertController extends Controller
     // Get
     public function Read()
     {
-        $concert = Concert::paginate(10)->orderBy("created_at","DESC");
+        $concert = Concert::orderByDesc("created_at")->paginate(10);
 
         return response()->json([
             "status"=>"success",
@@ -23,9 +23,7 @@ class ConcertController extends Controller
     }
     //create
     public function Create(Request $req)
-    {
-		
-	
+    {	
         
     	// $req->validate([
     	// 	'name' => 'required',
@@ -169,8 +167,34 @@ class ConcertController extends Controller
             }
     		
     	}
+    }
+
+    // Pupuler
+    public function Pupuler()
+    {
+        $concert = Concert::orderByDesc('like')->paginate(10);
+
+        return response()->json([
+            "status"=>"success",
+            "data"=> $concert
+        ]);   
+    }
+
+    // Search 
+    public function Search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $concert = Concert::where('name','like','%'.$keyword.'%')
+                            ->orWhere('category_id','like','%'.$keyword.'%')
+                            ->orWhere('type_id','like','%'.$keyword.'%')
+                            ->paginate(10);
+
+        return response()->json([
+            "status"=>"success",
+            "data"=> $concert
+        ]);  
 	}
-	
+	// 
 	public function MyConcert(){
 		return json_encode(Concert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
 	}

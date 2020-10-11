@@ -41,12 +41,12 @@ export default {
     getData(){
       this.$axios.get(this.$store.state.api+"concert/pupuler")
         .then(res => {
-          this.konserPopuler = res.data.data
+          this.konserPopuler = res.data.data.data
         })
 
       this.$axios.get(this.$store.state.api+"concert")
         .then(res => {
-          this.konserterbaru = res.data.data
+          this.konserTerbaru = res.data.data.data
         })
 
     }

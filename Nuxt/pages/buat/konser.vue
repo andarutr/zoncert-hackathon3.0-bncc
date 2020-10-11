@@ -9,11 +9,11 @@
    <!-- Form -->
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Kategori</label>
-        <v-select class="w-full bg-theme_primary"  :options="$store.state.kategori" label="category" v-model="d.category_id" multiple :reduce="dx => dx.id" />
+        <v-select class="w-full bg-theme_primary"  :options="$store.state.kategori" label="category" v-model="d.category_id" multiple :reduce="dx => dx.category" />
     </div>
        <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Jenis Konser</label>
-        <v-select class="w-full bg-theme_primary"  :options="$store.state.jenis_konser" label="type" v-model="d.type_id" :reduce="dx => dx.id" />
+        <v-select class="w-full bg-theme_primary"  :options="$store.state.jenis_konser" label="type" v-model="d.type_id" :reduce="dx => dx.type" />
     </div>
        <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Nama</label>
