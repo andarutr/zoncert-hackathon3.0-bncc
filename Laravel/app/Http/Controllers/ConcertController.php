@@ -24,18 +24,19 @@ class ConcertController extends Controller
     //create
     public function Create(Request $req)
     {
+		
+	
         
-        
-    	$req->validate([
-    		'name' => 'required',
-    		'thumbnail' => 'required',
-    		'description' => 'required',
-    		'category_id' => 'required',
-    		'type_id' => 'required',
-    		'start' => 'required',
-    		'end' => 'required',
-    		'location' => 'required',
-    	]);
+    	// $req->validate([
+    	// 	'name' => 'required',
+    	// 	'thumbnail' => 'required',
+    	// 	'description' => 'required',
+    	// 	'category_id' => 'required',
+    	// 	'type_id' => 'required',
+    	// 	'start' => 'required',
+    	// 	'end' => 'required',
+    	// 	'location' => 'required',
+    	// ]);
 
         if($req->thumbnail){
                 
@@ -61,12 +62,12 @@ class ConcertController extends Controller
     		'name' => $req->name,
     		'thumbnail' => $imgUrl,
     		'description' => $req->description,
-    		'category_id' => $req->category_id,
+    		'category_id' => implode(",",$req->category_id),
     		'type_id' => $req->type_id,
     		'start' => $req->start,
     		'end' => $req->end,
-    		'like' => NULL,
-    		'discuss' => $req->discuss,
+    		'like' => 0,
+    		// 'discuss' => $req->discuss,
     		'location' => $req->location,
     		'user_id' => Auth::id(),
 		]);
@@ -126,7 +127,7 @@ class ConcertController extends Controller
 					'start' => $req->start,
 					'end' => $req->end,
 					'like' => NULL,
-					'discuss' => $req->discuss,
+					// 'discuss' => $req->discuss,
 					'location' => $req->location
 				]);
 

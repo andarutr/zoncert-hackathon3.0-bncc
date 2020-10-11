@@ -18,8 +18,8 @@ class Concert extends Migration
             $table->string('name', 128);
             $table->string('thumbnail', 128);
             $table->text('description');
-            $table->integer('category_id');
-            $table->integer('type_id');
+            $table->string('category_id');
+            $table->string('type_id');
             $table->date('start');
             $table->date('end');
             $table->integer('like')->nullable();

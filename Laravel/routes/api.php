@@ -23,6 +23,11 @@ Route::post('/register', 'api\AuthController@register');
 Route::post('/logout', 'api\AuthController@logout');
 
 
+// Helper
+
+Route::get('/category','HelperController@getCategory');
+Route::get('/type','HelperController@getType');
+
 Route::middleware('auth:api')->group(function(){
     // Get Konser Terbaru
     Route::get('/concert', 'ConcertController@Read');
