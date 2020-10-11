@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Interest extends Migration
+class TicketConcert extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class Interest extends Migration
      */
     public function up()
     {
-        Schema::create('interests', function (Blueprint $table) {
+        Schema::create('ticket_concerts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('category_id', 128);
-            $table->string('interest', 128);
+            $table->integer('consert_id');
+            $table->integer('cost_id');
+            $table->string('status', 50);
+            $table->string('receipt', 50);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class Interest extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interests');
+        Schema::dropIfExists('ticket_concerts');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Interest extends Migration
+class PictureConcert extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class Interest extends Migration
      */
     public function up()
     {
-        Schema::create('interests', function (Blueprint $table) {
+        Schema::create('picture_concerts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->string('category_id', 128);
-            $table->string('interest', 128);
+            $table->integer('concert_id');
+            $table->string('picture', 128);
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class Interest extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interests');
+        Schema::dropIfExists('picture_concerts');
     }
 }
