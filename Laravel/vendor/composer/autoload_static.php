@@ -578,11 +578,18 @@ class ComposerStaticInitf41d81ffc11a863a246218678f8b8e61
     );
 
     public static $classMap = array (
+        'App\\Concert' => __DIR__ . '/../..' . '/app/Concert.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/AuthController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+<<<<<<< HEAD
+=======
+        'App\\Http\\Livewire\\Concert\\Create' => __DIR__ . '/../..' . '/app/Http/Livewire/Concert/Create.php',
+        'App\\Http\\Livewire\\Concert\\Delete' => __DIR__ . '/../..' . '/app/Http/Livewire/Concert/Delete.php',
+        'App\\Http\\Livewire\\Concert\\Update' => __DIR__ . '/../..' . '/app/Http/Livewire/Concert/Update.php',
+>>>>>>> eea20eac3153f97d9e302fb84c3d5d972ea8b247
         'App\\Http\\Livewire\\User\\Update' => __DIR__ . '/../..' . '/app/Http/Livewire/User/Update.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

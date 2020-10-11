@@ -22,7 +22,7 @@ class Concert extends Migration
             $table->integer('type_id');
             $table->date('start');
             $table->date('end');
-            $table->integer('like');
+            $table->integer('like')->nullable();
             $table->integer('discuss');
             $table->text('location');
             $table->integer('user_id');

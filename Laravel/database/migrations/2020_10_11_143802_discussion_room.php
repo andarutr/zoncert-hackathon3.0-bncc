@@ -15,7 +15,7 @@ class DiscussionRoom extends Migration
     {
         Schema::create('discussion_rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('consert_id');
+            $table->integer('concert_id');
             $table->text('text');
             $table->string('image', 50);
             $table->text('reply');
