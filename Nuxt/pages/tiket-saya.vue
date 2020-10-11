@@ -4,12 +4,12 @@
  
  
 
-   <nuxt-link to="/" class="text-center border-primary border-4 w-full p-2 rounded-full text-primary font-bold text-xl mt-3 ">
-    Cari Konser
-   </nuxt-link>
-
    <img src="/il/undraw_transfer_money_rywa.svg" alt="Tiket">
   
+   <nuxt-link to="/" class="text-center border-primary border-4 w-full p-2 rounded-full text-primary font-bold text-xl my-3 ">
+    Beli Tiket
+   </nuxt-link>
+
 
   </div>
 </template>

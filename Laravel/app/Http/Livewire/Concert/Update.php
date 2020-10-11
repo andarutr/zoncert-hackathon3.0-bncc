@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Concert;
 
 use App\Concert;
 use Livewire\Component;
+use Auth;
+use Storage;
 
 class Update extends Component
 {
@@ -46,41 +48,54 @@ class Update extends Component
     	{
     		$concert = Concert::find($this->concertId);
 
-    		if($this->thumbnail){
-                
-	            $image_64 = $this->thumbnail; //your base64 encoded data
-	    
-	            $replace = substr($image_64, 0, strpos($image_64, ',')+1); 
-	    
-	            // find substring fro replace here eg: data:image/png;base64,
-	    
-	            $image = str_replace($replace, '', $image_64); 
-	    
-	            $image = str_replace(' ', '+', $image); 
-	    
-	            $imageName = Auth::id() ."/". time().'.jpg';
-	    
-	            Storage::disk('public')->put($imageName, base64_decode($image));
+			if($concert->user_id == Auth::id()){
 
-	            $metda->img = env("APP_URL")."/storage/".$imageName;
+				
+				if($this->thumbnail){
+					
+					$image_64 = $this->thumbnail; //your base64 encoded data
+			
+					$replace = substr($image_64, 0, strpos($image_64, ',')+1); 
+			
+					// find substring fro replace here eg: data:image/png;base64,
+			
+					$image = str_replace($replace, '', $image_64); 
+			
+					$image = str_replace(' ', '+', $image); 
+			
+					$imageName = Auth::id() ."/". time().'.jpg';
+			
+					Storage::disk('public')->put($imageName, base64_decode($image));
 
-	            $metda->thumb = "";
-	        }
+					$imgUrl = env("APP_URL")."/storage/".$imageName;
 
-    		$concert->update([
-    			'name' => $this->name,
-	    		'thumbnail' => $image_64,
-	    		'description' => $this->description,
-	    		'category_id' => $this->category_id,
-	    		'type_id' => $this->type_id,
-	    		'start' => $this->start,
-	    		'end' => $this->end,
-	    		'like' => NULL,
-	    		'discuss' => $this->discuss,
-	    		'location' => $this->location,
-	    		'user_id' => 1,
-    		]);
+				}
 
+				$concert->update([
+					'name' => $this->name,
+					'thumbnail' => $imgUrl,
+					'description' => $this->description,
+					'category_id' => $this->category_id,
+					'type_id' => $this->type_id,
+					'start' => $this->start,
+					'end' => $this->end,
+					'like' => NULL,
+					'discuss' => $this->discuss,
+					'location' => $this->location
+				]);
+
+				return response()->json([
+					"status"=>"success",
+					"info"=> ""
+				]);
+
+			}else{
+				
+				return response()->json([
+					"status"=>"error",
+					"info"=> "you don't have access"
+				]);
+			}
     		// Redirect
     	}
     }
