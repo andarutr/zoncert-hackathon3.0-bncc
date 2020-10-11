@@ -24,7 +24,7 @@ class Create extends Component
     		'thumbnail' => 'required',
     		'description' => 'required',
     		'category_id' => 'required',
-    		'type_id' =. 'required',
+    		'type_id' => 'required',
     		'start' => 'required',
     		'end' => 'required',
     		'location' => 'required',
