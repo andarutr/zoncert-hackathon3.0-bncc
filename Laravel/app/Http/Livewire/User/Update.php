@@ -11,9 +11,7 @@ class Update extends Component
 {
 	use WithFileUploads;
 
-	public $name;
-	public $password;
-	public $avatar;
+	public $name, $password, $avatar;
 
     public function render()
     {

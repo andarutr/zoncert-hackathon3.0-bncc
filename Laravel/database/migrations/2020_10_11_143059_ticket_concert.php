@@ -16,7 +16,7 @@ class TicketConcert extends Migration
         Schema::create('ticket_concerts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('consert_id');
+            $table->integer('concert_id');
             $table->integer('cost_id');
             $table->string('status', 50);
             $table->string('receipt', 50);
