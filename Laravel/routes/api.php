@@ -43,8 +43,15 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/concert/search/{keyword}', 'ConcertController@Search');
 
 
+
      // 3. Api Untuk Pemesanan Tiket
-    
+    //  Api Cost konser
+     Route::post('/cost/{concert_id}', 'CostController@Create');
+     Route::post('/cost/delete/{id}', 'CostController@Create');
+
+     Route::get('/buy-ticket/{concert_id}/{cost_id}', 'TicketController@Buy');
+
+     
 
     // Konser Saya
     // 4. Get Data Konser yang Sudah di beli By Auth::id() / Order Terbaru + Konser yang dibuat sendiri 
@@ -53,6 +60,9 @@ Route::middleware('auth:api')->group(function(){
     // Tiket Saya
     // 5. Get Data Tiket Urutkan yang Belum Dibayar di awal 
     Route::get('/my-ticket', 'ConcertController@MyTicket');
+
+
+    
 
 
     
