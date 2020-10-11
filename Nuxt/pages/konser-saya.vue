@@ -1,12 +1,19 @@
 <template>
   <div class="w-full pt-16 p-2 flex flex-wrap">
  
-   <button class="bg-primary w-full lg:w-1/2 p-3 rounded-full text-secondary mb-2 font-bold">
+
+  <nuxt-link to="/buat/konser" class=" text-lg bg-primary border-primary border-4 w-full text-center lg:w-1/2 p-2 rounded-full text-secondary mb-2 font-bold">
      Buat Konser Baru
-   </button>
-    <button class="border-primary border-4 w-full lg:w-1/2 p-3 rounded-full text-primary mb-2 font-bold">
+   </nuxt-link>
+    <nuxt-link to="/" class=" text-lg  text-center  border-primary border-4 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold">
      Cari Konser
-   </button>
+   </nuxt-link>
+   
+     <div v-if="!konserSaya" class="w-full content-center justify-center flex mb-3">
+            <img src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
+      </div>
+      
+ 
   </div>
 </template>
 
@@ -14,6 +21,11 @@
 export default {
   scrollToTop: true,
   layout: 'app',
+   data(){
+        return{
+            konserSaya: ''
+        }
+  }
 }
 </script>
 

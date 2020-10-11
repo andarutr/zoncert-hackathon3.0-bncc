@@ -1,9 +1,16 @@
 <template>
-  <div class="w-full pt-16 p-2">
+  <div class="w-full pt-16 p-2 flex flex-wrap">
  
-   <button class="bg-primary w-full lg:w-1/4 p-3 rounded-lg text-secondary ">
-    Cari Konser ..
-   </button>
+ 
+ 
+
+   <nuxt-link to="/" class="text-center border-primary border-4 w-full p-2 rounded-full text-primary font-bold text-xl mt-3 ">
+    Cari Konser
+   </nuxt-link>
+
+   <img src="/il/undraw_transfer_money_rywa.svg" alt="Tiket">
+  
+
   </div>
 </template>
 

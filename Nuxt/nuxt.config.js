@@ -59,6 +59,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/pwa',
+    'nuxt-vue-select',
     'vue-scrollto/nuxt',
     [
       'nuxt-i18n',

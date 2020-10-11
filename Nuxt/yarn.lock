@@ -5256,6 +5256,13 @@ nuxt-i18n@^6.15.1:
     js-cookie "^2.2.1"
     vue-i18n "^8.18.1"
 
+nuxt-vue-select@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/nuxt-vue-select/-/nuxt-vue-select-0.1.4.tgz#773ad2ef78902b440f9b5766d9cc73f103f083b2"
+  integrity sha512-8njkU9XZV2it9IjZHFwLj2mChsxFhiAJ6MFj3ZU8wBffirylZXcZmzOuO/hBduz8jf1os8Q5A7x94QmoPK4A8A==
+  dependencies:
+    vue-select "^3.2.0"
+
 nuxt@^2.13.0:
   version "2.14.4"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.14.4.tgz#c12ee6060aa7660cdeed4ef9efdcefc4472077d9"
@@ -7789,6 +7796,11 @@ vue-scrollto@^2.18.2:
   integrity sha512-LQOsuCfDJ5JXsRBb6frM85sCFABZdkwwwchLh4k3wbp8P6URRDcQvwp31U4cTnbyYEOo6JFP7+3p0wkvwy7MdA==
   dependencies:
     bezier-easing "2.1.0"
+
+vue-select@^3.2.0:
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.10.8.tgz#5d0839cba228a9a5efa1a88e5436840eb3fd0c7a"
+  integrity sha512-PnjtZWCTiSr04bs8ctPIiU41qnBK+oh/SOe6Pb4gElMMxofDFwUxiUe++mz0+84aTy4zrleGxtvVVyWbiPYBiw==
 
 vue-server-renderer@^2.6.12:
   version "2.6.12"

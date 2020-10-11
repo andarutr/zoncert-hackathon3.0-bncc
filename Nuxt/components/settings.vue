@@ -1,9 +1,9 @@
 <template>
-    <div v-if="$store.state.settings" class="font-bold  text-center w-full h-screen fixed top-0 right-0 p-3 rounded-lg flex justify-center items-center flex-wrap" style="overflow:scroll">
+    <div v-if="$store.state.settings" class="font-bold z-50  text-center w-full h-screen fixed top-0 right-0 p-3 rounded-lg flex justify-center items-center flex-wrap " style="overflow:scroll">
     
-    <div @click="$store.commit('toggleSetting')" class=" opacity-75 w-full h-screen bg-theme_primary_light absolute top-0 right-0  z-10"></div>
+    <div @click="$store.commit('toggleSetting')" class=" opacity-75 w-full h-screen bg-theme_primary_light absolute top-0 right-0  z-40"></div>
     
-    <div class="z-20 w-full bg-theme_primary p-5 shadow-lg rounded-xl neu-out" style="max-width:600px">
+    <div class="z-50 w-full bg-theme_primary p-5 shadow-lg rounded-xl neu-out" style="max-width:600px">
          
             <!-- Primary Color Set  -->
                <div class="w-full neu-in p-5 lg:p-10 rounded-xl flex flex-wrap justify-center">

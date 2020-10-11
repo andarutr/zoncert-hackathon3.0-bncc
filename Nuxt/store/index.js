@@ -7,6 +7,8 @@ const createStore = () => {
         theme: localStorage.getItem("theme") || 'theme-light',
         primaryColor: localStorage.getItem("primary-color") || 'primary-indigo',
         loading: false,
+        kategori: ['Musik','Film','Teknologi','Bisnis','K-POP','Wibu','Lainnya'],
+        jenis_konser: ['Live Konser', 'Meet&Greet', 'Seminar','Diskusi', 'Lainnya']
     },
     mutations: {
      

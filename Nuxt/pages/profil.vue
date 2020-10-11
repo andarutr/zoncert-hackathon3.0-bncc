@@ -1,9 +1,9 @@
 <template>
   <div class="w-full pt-16 p-2">
  
-   <button class="bg-primary w-full lg:w-1/4 p-3 rounded-lg text-secondary ">
+   <h2 class="text-primary w-full lg:w-1/4 p-3 rounded-lg  font-bold text-xl ">
      Profil Saya
-   </button>
+   </h2>
   </div>
 </template>
 
