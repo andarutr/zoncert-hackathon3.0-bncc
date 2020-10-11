@@ -327,9 +327,9 @@ export default {
       activeClass: "text-center text-xs2 w-full rounded-lg mt-1  text-primary",
       nonActiveClass: "text-center text-xs2 w-full  text-default mt-1",
       activeClassLg:
-        "text-left text-lg p-1 px-8 mx-4 rounded-full bg-theme_primary_dark text-primary",
+        "text-left text-lg p-1 px-8 mx-4 rounded-full bg-theme_primary_light text-primary",
       nonActiveClassLg:
-        "text-left text-lg p-1 px-8 mx-4 rounded-full text-default hover:bg-theme_primary_dark hover:text-primary",
+        "text-left text-lg p-1 px-8 mx-4 rounded-full text-default hover:bg-theme_primary_light hover:text-primary",
     };
   },
   computed: {

@@ -23,10 +23,10 @@ const createStore = () => {
             state.auth = true
         },
         logout(state){
-            // this.$axios.$post(state.api+'logout')
-            // .then(res => {
-            //     console.log("Success Logout")
-            // });
+            this.$axios.$post(state.api+'logout')
+            .then(res => {
+                console.log("Success Logout")
+            });
 
             localStorage.clear()
             state.auth = false
