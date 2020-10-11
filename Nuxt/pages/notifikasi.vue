@@ -2,7 +2,7 @@
   <div class="w-full pt-16 p-2 flex flex-wrap">
  
    <h2 class=" w-full  p-3 rounded-lg text-primary font-bold text-2xl ">
-     Notifikasi
+     Pembayaran 
    </h2>
    <p>
     <span class="p-2 my-3 w-full">
@@ -27,7 +27,7 @@
        <br>
        Ari Bahtiar  : 085787995896
        <br>
-       Andaru  : 81212088497
+       Andaru  : 081212088497
      </p>
   </div>
 </template>
