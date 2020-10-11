@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full  p-2 bg-theme_primary_light mt-20 rounded-lg">
+  <div class="w-full  p-2 bg-theme_primary_light mt-20 rounded-xl">
 
 
  

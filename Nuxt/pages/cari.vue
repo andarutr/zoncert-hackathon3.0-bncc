@@ -9,6 +9,16 @@
       <div class="flex w-full flex-wrap mb-3">
           <input @keyup.enter="getData" type="text" class="bg-theme_primary_light w-full p-3 rounded-xl px-5" placeholder="Cari Nama Konser" v-model="keyword">
       </div>
+
+      <div v-if="!cariKonser" class="w-full content-center justify-center flex flex-wrap my-3">
+            <img src="/il/undraw_happy_music_g6wc.svg" alt="avatar" >
+            
+            <span class="p-2">Konsernya Tidak Ada</span>
+
+             <nuxt-link to="/buat/konser" class=" text-lg  text-center  border-primary border-4 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold">
+              Buat Konser Saya
+            </nuxt-link>
+      </div>
       
       <div v-if="keyword" class="w-full">
         <konser class="w-full" v-for="konser in cariKonser" :key="konser.id" :data="konser" />
@@ -49,8 +59,10 @@ export default {
       if(this.keyword){
           this.$axios.get(this.$store.state.api+"concert/search/"+this.keyword)
             .then(res => {
-              console.log(res.data.data.data)
-              this.cariKonser = res.data.data.data
+              if(res.data.data.total > 0){
+                  this.cariKonser = res.data.data.data
+              }
+            
             })
       }
     

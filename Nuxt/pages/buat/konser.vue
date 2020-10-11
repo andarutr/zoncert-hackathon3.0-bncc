@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mt-20 rounded-lg bg-theme_primary_light  p-2 flex flex-wrap mb-20">
+  <div class="w-full mt-20 rounded-xl bg-theme_primary_light  p-2 flex flex-wrap mb-20">
 
     
    <h2 class="w-full p-3 rounded-full text-primary text-3xl font-bold">

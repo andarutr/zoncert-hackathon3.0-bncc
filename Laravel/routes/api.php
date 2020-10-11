@@ -28,37 +28,26 @@ Route::post('/logout', 'api\AuthController@logout');
 Route::get('/category','HelperController@getCategory');
 Route::get('/type','HelperController@getType');
 
+
+Route::get('/concert', 'ConcertController@Read'); // Terbaru
+Route::get('/concert/pupuler', 'ConcertController@Pupuler'); // Populer
+Route::get('/concert/search/{keyword}', 'ConcertController@Search'); // Search
+
+
+
 Route::middleware('auth:api')->group(function(){
     // Get Konser Terbaru
-    Route::get('/concert', 'ConcertController@Read');
     Route::post('/concert/create','ConcertController@Create');
     Route::post('/concert/update', 'ConcertController@Update');
     Route::post('/concert/delete/{id}', 'ConcertController@Delete');
-
-   
-    // Saya Butuh APi ini respon Api Paginate
-    // 1. Get Populer Konser (Order By Like)
-    Route::get('/concert/pupuler', 'ConcertController@Pupuler');
-    // 2. Where Nama / Kategori / Tipe like Keyword 
-    Route::get('/concert/search/{keyword}', 'ConcertController@Search');
-
-
-
-     // 3. Api Untuk Pemesanan Tiket
-    //  Api Cost konser
-     Route::post('/cost/{concert_id}', 'CostController@Create');
-     Route::post('/cost/delete/{id}', 'CostController@Create');
-
-     Route::get('/buy-ticket/{concert_id}/{cost_id}', 'TicketController@Buy');
-
-     
-
-    // Konser Saya
-    // 4. Get Data Konser yang Sudah di beli By Auth::id() / Order Terbaru + Konser yang dibuat sendiri 
     Route::get('/my-concert', 'ConcertController@MyConcert');
-    
-    // Tiket Saya
-    // 5. Get Data Tiket Urutkan yang Belum Dibayar di awal 
+
+    //    Cost Tiket
+     Route::post('/cost/{concert_id}', 'CostController@Create'); // Buat Cost tiket
+     Route::post('/cost/delete/{id}', 'CostController@Create'); // Haous Cost
+
+     Route::get('/buy-ticket/{concert_id}/{cost_id}', 'TicketController@Buy'); // Beli Tiket
+    // Get Tiket Order dari Yang Belum Dibayar
     Route::get('/my-ticket', 'ConcertController@MyTicket');
 
 
