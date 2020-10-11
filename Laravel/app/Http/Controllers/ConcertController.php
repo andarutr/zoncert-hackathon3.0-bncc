@@ -23,9 +23,7 @@ class ConcertController extends Controller
     }
     //create
     public function Create(Request $req)
-    {
-		
-	
+    {	
         
     	// $req->validate([
     	// 	'name' => 'required',
@@ -169,5 +167,31 @@ class ConcertController extends Controller
             }
     		
     	}
+    }
+
+    // Pupuler
+    public function Pupuler()
+    {
+        $concert = Concert::orderByDesc('like')->paginate(10);
+
+        return response()->json([
+            "status"=>"success",
+            "data"=> $concert
+        ]);   
+    }
+
+    // Search 
+    public function Search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $concert = Concert::where('name','like','%'.$keyword.'%')
+                            ->orWhere('category','like','%'.$keyword.'%')
+                            ->orWhere('type','like','%'.$keyword.'%')
+                            ->paginate(10);
+
+        return response()->json([
+            "status"=>"success",
+            "data"=> $concert
+        ]);  
     }
 }
