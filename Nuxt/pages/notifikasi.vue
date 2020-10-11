@@ -22,12 +22,12 @@
          LinkAja  : 085787995896
        </li>
      </ul>
-     <p>
+     <p class="flex flex-wrap p-2">
        Untuk Konfirmasi Bisa Melalui WhatsApps :
        <br>
-       Ari Bahtiar  : 085787995896
+        <span class="font-bold text-lg pt-2 w-full"> Ari Bahtiar  : 085787995896</span>
        <br>
-       Andaru  : 081212088497
+         <span class="font-bold text-lg pt-2 w-full"> Andaru  : 081212088497 </span>
      </p>
   </div>
 </template>

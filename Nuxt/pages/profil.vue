@@ -11,12 +11,17 @@
 
 
 
-  
+
     <div class="flex p-3 w-full flex-wrap">
-        <label class="w-full font-bold py-2">Nama</label>
-        <h2 class="text-xl">
-          {{ $store.state.user.name}}
-        </h2>
+       <div class="border-2 rounded-full p-2 bg-theme_primary_light">
+          <img src="/icon.png" width="50" height="50" alt="">
+       </div>
+        <div class="px-2 pt-2">
+           <label class="w-full font-bold py-2">Nama</label>
+            <h2 class="text-xl">
+              {{ $store.state.user.name}}
+            </h2>
+        </div>
     </div>
     <div class="flex p-3 w-full flex-wrap">
         <label class="w-full font-bold py-2">Email</label>

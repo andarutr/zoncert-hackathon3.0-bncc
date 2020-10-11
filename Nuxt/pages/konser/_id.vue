@@ -20,12 +20,17 @@
                     <span>Rp. 500.000</span>
                 </button>
             </div>
+              <span class="px-2 text-left text-primary font-bold text-xl" > {{  konser.like }} Menyukai</span> 
               <button @click="$store.commit('like',konser.id);konser.like = konser.like+1" 
-              class="text-primary float-right w-full justify-center border border-primary p-2 rounded-full  text-center mt-4 flex">
+              class="text-primary float-right w-full justify-center border border-primary p-2 rounded-full   mt-4 flex">
+
+                  
+
+
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-heart-fill " fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
-                    <span class="px-2" > {{  konser.like }} Suka</span> 
+                    <span class="px-2" > Sukai</span> 
             </button>
             <button class="bg-primary w-full hover:bg-primary_dark text-secondary font-bold  text-2xl p-2 rounded-full my-3">
                 Beli Tiket
