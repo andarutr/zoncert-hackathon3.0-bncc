@@ -5,14 +5,13 @@ const createStore = () => {
     state: {
         settings: false,
         theme: localStorage.getItem("theme") || 'theme-light',
-        primaryColor: localStorage.getItem("primary-color") || 'primary-indigo',
+        primaryColor: localStorage.getItem("primary-color") || 'primary-purple',
         loading: false,
         menu_tab: '',
         kategori: [
-            'Menu 1',
-            'Menu 2',
-            'Menu 3',
-            'Menu 4'
+            'Populer',
+            'Terbaru',
+            'Minggu Ini'
         ]
     },
     mutations: {

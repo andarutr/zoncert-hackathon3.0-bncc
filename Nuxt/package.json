@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "nuxt": "^2.13.0",
+    "nuxt-i18n": "^6.15.1",
     "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {

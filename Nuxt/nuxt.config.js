@@ -60,6 +60,32 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/pwa',
     'vue-scrollto/nuxt',
+    [
+      'nuxt-i18n',
+      {
+        locales: ['id','en'],
+        defaultLocale: 'id',
+        vueI18n: {
+          fallbackLocale: 'id',
+          messages: {
+            id: {
+              Beranda: 'Beranda',
+              KonserSaya: 'Konser Saya',
+              TiketSaya: 'Tiket Saya',
+              Notifikasi: 'Notifikasi',
+              Profil: 'Profil',
+            },
+            en: {
+              Beranda: 'Home',
+              KonserSaya: 'My Concert',
+              TiketSaya: 'My Ticket',
+              Notifikasi: 'Notifikasi',
+              Profil: 'Profile',
+            }
+          }
+        }
+      }
+    ]
   ],
   /*
   ** Axios module configuration

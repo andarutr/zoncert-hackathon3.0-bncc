@@ -16,6 +16,9 @@
 export default {
   scrollToTop: true,
   layout: 'app',
+  created(){
+    this.$store.commit('setMenuTab',this.toId(this.$store.state.kategori[0]))
+  },
   mounted() {
       var that = this;
         window.addEventListener("scroll", function() {
