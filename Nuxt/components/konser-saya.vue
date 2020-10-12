@@ -16,6 +16,10 @@
             </button>
 
 
+             <button class="bg-primary float-right rounded-full text-secondary p-1 px-4 text-xs">
+               Edit
+              </button>
+
 
             
         </div>

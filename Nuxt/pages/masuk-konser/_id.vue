@@ -3,7 +3,7 @@
      
         <div class="w-full p-3 flex">
 
-             <img  class="w-20 h-20" src="/il/undraw_super_thank_you_obwk.svg" alt="Populer">
+             <img  class="w-20 h-20" :src="konser.thumbnail" alt="Populer">
             
             <div class="px-5">
                    <h1 class="font-bold text-2xl">
@@ -16,51 +16,44 @@
 
 
         <div v-if="konser_saya">
-            <ul>
-              <li v-for="tiket in konser.CostConcert" :key="tiket.id">
-                  {{ tiket.name }}
-              </li>
-            </ul>
-             <!-- <button  class="bg-primary float-right rounded-full text-secondary p-1 px-4 text-xs">
-               Buat Tiket
-            </button> -->
+
+            <div class="flex flex-wrap py-3">
+                 <button class="hover:bg-primary hover:text-secondary text-lg  text-center  border-primary border-2 w-full lg:w-1/2 p-2 rounded-full text-primary mb-2 font-bold"
+                 v-for="tiket in konser.cost_concert" :key="tiket.id">
+                   {{ tiket.name }}
+                    <span class="px-2">{{ tiket.cost  }}</span>
+                </button>
+            </div>
+
+              <button @click="buatTiket = !buatTiket"  class="bg-primary float-right rounded-full text-secondary p-1 px-4 text-xs">
+                Buat Tiket
+              </button>
+                 <div v-if="buatTiket">
+                    
+                  <div class="flex p-3 w-full flex-wrap">
+                      <label class="w-full font-bold py-2">Nama Tiket</label>
+                      <input type="text" class="bg-theme_primary_light w-full p-3 rounded-lg px-5" placeholder="Nama Tiket" v-model="tiket.name">
+                  </div>
+
+                  <div class="flex p-3 w-full flex-wrap">
+                      <label class="w-full font-bold py-2">Harga Tiket</label>
+                      <input type="text" class="bg-theme_primary_light w-full p-3 rounded-lg px-5" placeholder="Nama Tiket" v-model="tiket.cost">
+                  </div>
+                   <div class="flex p-3 w-full flex-wrap">
+
+                      <button @click="simpan" class="bg-primary w-full p-2  rounded-full font-bold text-xl text-secondary ">
+                        Tambahkan Tiket
+                      </button>
+                   </div>
+                 </div>
+            <!-- Form -->
         </div>
         <p class="p-4">
-             Diskusi Konser :
+             Deskripsi :
         </p>
-
-        <div>
-          <ul class="p-3">
-            <li class="mt-2 flex flex-wrap">
-              <span class="font-bold w-full">Ari Bahtiar</span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
-              </span>
-            </li>
-
-             <li class="text-right mt-2 flex flex-wrap">
-                <span class="font-bold float-right w-full">Andaru</span>
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
-                </span>
-              </li>
-
-               <li class="mt-2 flex flex-wrap">
-                  <span class="font-bold w-full">Admin</span>
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
-                  </span>
-                </li>
-
-                <li class="mt-2 flex flex-wrap">
-                  <span class="font-bold w-full">User Lain</span>
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
-                  </span>
-                </li>
-
-          </ul>
-        </div>
+        <p>
+          {{ konser.description}}
+        </p>
 
   </div>
 </template>
@@ -71,11 +64,7 @@ export default {
   layout: 'app',
   created(){
     // get konser
-    this.$axios.get(this.$store.state.api+"concert/"+this.$route.params.id)
-      .then(res => {
-        console.log(res.data)
-        this.konser = res.data
-      })
+    this.getData()
   },
        methods:{
         tgl(req){
@@ -85,12 +74,33 @@ export default {
             let bulan = date.getMonth();
             let tahun = date.getFullYear();
             return tanggal+" "+arrbulan[bulan]+" "+tahun;
+        },
+        getData(){
+           this.$axios.get(this.$store.state.api+"concert/"+this.$route.params.id)
+              .then(res => {
+                console.log(res.data)
+                this.konser = res.data
+                if(this.konser.user_id == this.$store.state.user.id){
+                  this.konser_saya = true
+                }else{
+                  this.konser_saya = false
+                }
+              })
+        },
+        simpan(){
+          // this.tiket.concert_id = this.konser.id
+          this.$axios.post(this.$store.state.api+"cost/"+this.konser.id,this.tiket)
+            .then(res => {
+              this.getData()
+            })
         }
     },
   data(){
     return{
       konser_saya: true,
-      konser: ''
+      konser: '',
+      tiket: {},
+      buatTiket: false
     }
   }
 }
