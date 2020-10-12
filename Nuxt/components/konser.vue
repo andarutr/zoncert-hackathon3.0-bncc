@@ -2,7 +2,7 @@
     <div >
        <nuxt-link class="flex bg-theme_primary_light hover:bg-theme_primary_dark p-3 rounded-xl mb-2" :to="'/konser/'+data.id">
        <div class="w-1/3">
-            <img width="150px" height="150px" :src="data.thumbnail" alt="Populer">
+            <img width="150px" height="150px" class="rounded-xl" :src="data.thumbnail" alt="Populer">
        </div>
         <div class="w-2/3 p-3">
             <h1 class="font-bold text-lg lg:text-2xl">{{ data.name }}</h1>

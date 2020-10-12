@@ -9,7 +9,7 @@ const createStore = () => {
         api: 'http://localhost:8000/api/',
         settings: false,
         theme: localStorage.getItem("theme") || 'theme-light',
-        primaryColor: localStorage.getItem("primary-color") || 'primary-indigo',
+        primaryColor: localStorage.getItem("primary-color") || 'primary-orange',
         loading: false,
         kategori: [],
         jenis_konser: [],

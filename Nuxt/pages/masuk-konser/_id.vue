@@ -3,11 +3,11 @@
      
         <div class="w-full p-3 flex">
 
-             <img  class="w-20 h-20" :src="konser.thumbnail" alt="Populer">
+            <img  class="w-20 h-20" :src="konser.thumbnail" alt="Populer">
             
             <div class="px-5">
                    <h1 class="font-bold text-2xl">
-                            {{konser.name}}
+                        {{konser.name}}
                     </h1>
                     <h1 class="font-bold  text-xl text-primary">{{tgl(konser.start)}} - {{tgl(konser.end)}}</h1>
             </div>
@@ -47,13 +47,55 @@
                    </div>
                  </div>
             <!-- Form -->
+
+
+            
+
         </div>
+
+        
+            <iframe class="rounded-xl" width="100%" height="315" src="https://www.youtube.com/embed/Q-EkFs_KrDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            
         <p class="p-4">
-             Deskripsi :
+             Diskusi:
         </p>
-        <p>
-          {{ konser.description}}
-        </p>
+         <ul class="p-3 bg-theme_primary_light rounded-xl">
+            <li class="mt-2 flex flex-wrap">
+              <span class="font-bold w-full">Ari Bahtiar</span>
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
+              </span>
+            </li>
+
+             <li class="text-right mt-2 flex flex-wrap">
+                <span class="font-bold float-right w-full">Andaru</span>
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
+                </span>
+              </li>
+
+               <li class="mt-2 flex flex-wrap">
+                  <span class="font-bold w-full">Admin</span>
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
+                  </span>
+                </li>
+
+                <li class="mt-2 flex flex-wrap">
+                  <span class="font-bold w-full">User Lain</span>
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit fugit quam modi! Sint officiis non nisi? Tempore eveniet sint dolores quasi facilis quaerat amet! Tenetur enim ut hic quam cumque.
+                  </span>
+                </li>
+                <li>
+                    <div class="flex p-3 w-full flex-wrap">
+                        <label class="w-full font-bold py-2">Komentar</label>
+                        <input type="text" class="bg-theme_primary w-full p-3 rounded-lg px-5" placeholder="Komentar" >
+                    </div>
+                </li>
+
+          </ul>
 
   </div>
 </template>
@@ -63,8 +105,17 @@ export default {
   scrollToTop: true,
   layout: 'app',
   created(){
-    // get konser
-    this.getData()
+    // Cek Konser
+    this.$axios.get(this.$store.state.api+"check-ticket/"+this.$route.params.id)
+      .then(res => {
+        console.log(res.data.status)
+          if(res.data.status == "success"){
+            this.getData()
+          }else{
+            this.$router.push("/tiket-saya")
+          }
+      })
+
   },
        methods:{
         tgl(req){

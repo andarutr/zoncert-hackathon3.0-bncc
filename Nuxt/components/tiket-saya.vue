@@ -19,11 +19,11 @@
 
         <div class="w-full ">
             <button class=" float-right  text-primary border-2  border-primary px-6 p-1 rounded-full mt-3">
-               Masuk Konser
+               Lihat Konser
             </button>
             
-            <button v-if="data.status == 'Lunas'" class="hover:bg-primary_dark border-2 border-primary text-secondary bg-primary px-6 p-1 rounded-full mt-3">
-               Lunas
+            <button v-if="data.status == 'Verified'" class="hover:bg-primary_dark border-2 border-primary text-secondary bg-primary px-6 p-1 rounded-full mt-3">
+               Verified
             </button>
               <button v-else class="bg-theme_primary_dark border-2 border-primary text-primary px-6 p-1 rounded-full mt-3">
                Pending

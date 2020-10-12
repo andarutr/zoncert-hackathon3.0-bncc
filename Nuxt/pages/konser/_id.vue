@@ -1,6 +1,6 @@
 <template>
   <div class="w-full pt-16 p-2 mb-20" v-if="konser">
-        <img  class="w-full lg:w-2/3 mx-auto" :src="konser.thumbnail" alt="Populer">
+        <img  class="w-full lg:w-2/3 mx-auto rounded-xl" :src="konser.thumbnail" alt="Populer">
         <div class="w-full p-3">
            
             <div class="flex flex-wrap py-3">
@@ -30,6 +30,7 @@
             </h1>
           <h1 class="font-bold  text-xl text-primary">{{tgl(konser.start)}} - {{tgl(konser.end)}}</h1>
             
+
             <p class="py-2">
                 {{ konser.description}}
             </p>

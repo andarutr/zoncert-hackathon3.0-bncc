@@ -195,7 +195,16 @@ class ConcertController extends Controller
 	}
 	// 
 	public function MyConcert(){
-		return json_encode(Concert::orderBy("created_at","DESC")->where("user_id",Auth::id())->paginate(10));
+		return json_encode(Concert::orderBy("created_at","DESC")
+		->where("user_id",Auth::id())
+		->orWhere(function($query) {
+			$listId = TicketConcert::get()
+			->where("user_id",Auth::id())
+			->where("status","Verified")
+			->pluck("concert_id")->toArray();
+			$query->whereIn('id', $listId);
+		})
+		->paginate(10));
 	}
 
     public function MyTicket(){

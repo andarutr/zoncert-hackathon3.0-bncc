@@ -25,7 +25,29 @@ class TicketController extends Controller
 			]);
 		}
     	
-    }
+	}
+	
+	public function cekTicket($id){
+		if(Auth::id()){
+			$ticket = TicketConcert::
+			 where("concert_id",$id)
+			->where("status","Verified")
+			->where("user_id",Auth::id())->first();
+			
+			return json_encode($ticket);
+
+			if($ticket){
+				return response()->json([
+					"status"=>"success"
+				]);
+			}else{
+				
+				return response()->json([
+					"status"=> "error"
+				]);
+			}
+		}
+	}
 
     public function Delete($id)
     {

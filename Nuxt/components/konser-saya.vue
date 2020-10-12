@@ -10,18 +10,11 @@
                 {{ tgl(data.start)}}
             </h1>
             
-          
-             <button class="font-bold  text-primary lg:text-lg  p-1 rounded-full mt-2">
-                30K Bergabung
+             <button class="text-primary border-2  border-primary px-6 p-1 rounded-full mt-3">
+               Lihat Konser
             </button>
 
 
-             <button class="bg-primary float-right rounded-full text-secondary p-1 px-4 text-xs">
-               Edit
-              </button>
-
-
-            
         </div>
 
        </nuxt-link>
@@ -34,11 +27,6 @@ export default {
         tgl(req){
             let arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
             let date = new Date(req);
-            // millisecond = date.getMilliseconds();
-            // detik = date.getSeconds();
-            // menit = date.getMinutes();
-            // jam = date.getHours();
-            // hari = date.getDay();
             let tanggal = date.getDate();
             let bulan = date.getMonth();
             let tahun = date.getFullYear();
